@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  company: MyString
+  phone: MyString
+  email: MyString
+  notes: MyText
+  time_in: 2013-11-07 14:58:32
+  time_out: 2013-11-07 14:58:32
+
+two:
+  company: MyString
+  phone: MyString
+  email: MyString
+  notes: MyText
+  time_in: 2013-11-07 14:58:32
+  time_out: 2013-11-07 14:58:32

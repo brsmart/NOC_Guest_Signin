@@ -1,0 +1,20 @@
+<%= simple_form_for(@visit, html: { class: 'form-horizontal' }) do |f| %>
+  <% if @visit.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h4>
+      <!--
+      <ul>
+      <%  @visit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul> -->
+    </div>
+  <% end %>
+
+    <%= f.input :company %>
+    <%= f.input :phone %>
+    <%= f.input :email %>
+    <%= f.input :notes, :input_html =>  {:cols => 140, :rows => 10 } %>
+
+    <%= f.button :submit %>
+<% end %>
