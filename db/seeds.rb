@@ -8,6 +8,3 @@
 #
 user=User.create!(:email => "test@test.com", :password => "test12345", :password_confirmation => "test12345")
 
-user1 = adduser("test@test.com", "test1234", true)
-user2 = adduser("test2@test.com", "test1234", false)
-user3 = adduser("test3@test.com", "test1234", false)

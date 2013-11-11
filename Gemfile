@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'simple_form'
+gem 'nested_form'
 #brs-gem 'sass-rails', '~> 4.0.0'
 
 group :doc do

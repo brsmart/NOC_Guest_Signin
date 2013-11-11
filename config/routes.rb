@@ -1,4 +1,5 @@
 NOCGuestSignin::Application.routes.draw do
+  resources :visitors
   resources :visits
 
   devise_for :views

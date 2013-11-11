@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131110164922) do
+ActiveRecord::Schema.define(version: 20131111205248) do
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20131110164922) do
 
   add_index "views", ["email"], name: "index_views_on_email", unique: true
   add_index "views", ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+
+  create_table "visitors", force: true do |t|
+    t.string   "vname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "visit_id"
+  end
 
   create_table "visits", force: true do |t|
     t.string   "company"

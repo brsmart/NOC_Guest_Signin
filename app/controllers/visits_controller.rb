@@ -15,6 +15,8 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
+    @visit.visitors.build
+    5.times {@visit.visitors.build}
   end
 
   # GET /visits/1/edit
@@ -70,6 +72,6 @@ class VisitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def visit_params
-      params.require(:visit).permit(:company, :phone, :email, :notes, :time_in, :time_out, :completed)
+      params.require(:visit).permit(:company, :phone, :email, :notes, :time_in, :time_out, :completed, visitors_attributes: [:id, :visit_id, :vname])
     end
 end
