@@ -15,8 +15,6 @@ class VisitsController < ApplicationController
   # GET /visits/new
   def new
     @visit = Visit.new
-    @visit.visitors.build
-    5.times {@visit.visitors.build}
   end
 
   # GET /visits/1/edit

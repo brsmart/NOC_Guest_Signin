@@ -12,11 +12,11 @@
   <% end %>
   <div id="visitors">
   <% f.fields_for :visitors do |visitor| %>
-    <tr class="fields">
+    <div class="fields">
     <%= visitor.label :content, "Visitor Name" %><br />
     <%= visitor.text_field :vname %>
     <%= visitor.link_to_remove "Remove Visitor" %>
-    </tr>
+    </div>
   </div>
   <% end %>
   <p><%= f.link_to_add "Add Visitor", :visitors, :data => { :target => "#visitors" } %></p> 
