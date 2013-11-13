@@ -6,4 +6,5 @@ class Visit < ActiveRecord::Base
   validates :phone, presence: true
   validates :email, presence: true
   validates :notes, presence: true
+
 end

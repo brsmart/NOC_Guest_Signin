@@ -2,7 +2,15 @@
   Voonami-Visitor/Visit log
 <% end %>
 
-<h3>Visitors/Visit Log</h3>
+<div class="row">
+  <div class="span6">
+    <h3>Visitors/Visit Logs
+      <div class="btn-group">
+        <button class="btn btn-default"><span class="icon-plus"></span> <%= link_to 'New Visitor', new_visitor_path %></button>
+      </div>
+    </h3>
+  </div>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -25,7 +33,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Visitor', new_visitor_path %>

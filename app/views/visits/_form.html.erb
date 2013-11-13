@@ -12,18 +12,18 @@
   <% end %>
   <div id="visitors">
   <% f.fields_for :visitors do |visitor| %>
-    <div class="fields">
-    <%= visitor.label :content, "Visitor Name" %><br />
-    <%= visitor.text_field :vname %>
-    <%= visitor.link_to_remove "Remove Visitor" %>
+    <div class="input-group">
+      <%= visitor.text_field :vname %>
+    <button class="btn btn-default"><span class="icon-minus"></span><%= visitor.link_to_remove "Remove" %></button>
     </div>
   </div>
   <% end %>
-  <p><%= f.link_to_add "Add Visitor", :visitors, :data => { :target => "#visitors" } %></p> 
+  <div class='btn-group'>
+  <button class="btn btn-default"><span class="icon-plus"></span> <%= f.link_to_add "Add Visitor", :visitors, :data => { :target => "#visitors" } %> </button>  <%= f.button :submit %>
+  </div>
     <%= f.input :company %>
     <%= f.input :phone %>
     <%= f.input :email %>
     <%= f.input :notes, :input_html =>  {:cols => 140, :rows => 10 } %>
 
-    <%= f.button :submit %>
 <% end %>

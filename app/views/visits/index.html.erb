@@ -2,21 +2,28 @@
   Voonami-Visitor
 <% end %>
 
-<h3>Visits</h3>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Company</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Notes</th>
-      <th>Time In</th>
-      <th>Time Out</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="row">
+  <div class="span6">
+    <h3>Visits
+      <div class="btn-group">
+        <button class="btn btn-default"><span class="icon-plus"></span> <%= link_to 'New Visit', new_visit_path %></button>
+      </div>
+    </h3>
+  </div>
+</div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Notes</th>
+        <th>Time In</th>
+        <th>Time Out</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
 
   <tbody>
     <% @visits.each do |visit| %>
@@ -38,7 +45,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Visit', new_visit_path %>
