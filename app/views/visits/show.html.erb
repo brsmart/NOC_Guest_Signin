@@ -1,35 +1,42 @@
 <% content_for :title do %>
- Voonami-Visit 
+  Voonami-Visit 
 <% end %>
-<p>
-  <strong>Company:</strong>
-  <%= @visit.company %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @visit.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @visit.email %>
-</p>
-
-<p>
-  <strong>Notes:</strong>
-  <%= @visit.notes %>
-</p>
-
-<p>
-  <strong>Time in:</strong>
-  <%= @visit.created_at %>
-</p>
-
-<ul>
-  <% @visit.visitors.each do |visitor| %>
-    <li><%= visitor.vname %></li>
-<% end %>
-</ul>
-<%= link_to 'Edit', edit_visit_path(@visit) %> |
-<%= link_to 'Back', visits_path %>
+<div class="col-sm-offset-1 col-sm-10">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @visit.company %></h3>
+      <small><%= @visit.phone %> | <%= @visit.email %></small>
+    </div>
+    <div class="panel-body">
+      <%= @visit.notes %>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Visitor</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% count =  1 %>
+      <% @visit.visitors.each do |visitor| %>
+        <tr>
+        <td style="width: 5%:">
+          <%= count %>
+        </td>
+        <td>
+          <%= visitor.vname %>
+        </td>
+      </tr>
+      <% count = count + 1 %>
+    <% end %>
+      </tbody>
+    </table>
+    <div class="panel-body">
+      <small>Visit started <%= @visit.created_at %></small><br />
+      <small>Visit ended <%= @visit.time_out %></small>
+    </div>
+  </div> 
+  <%= link_to 'Edit', edit_visit_path(@visit) %> |
+  <%= link_to 'Back', visits_path %>
+</div>

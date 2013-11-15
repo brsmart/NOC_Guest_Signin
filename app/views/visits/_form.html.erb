@@ -1,29 +1,87 @@
-<%= simple_nested_form_for(@visit, html: { class: 'form-horizontal' }) do |f| %>
+<%= simple_nested_form_for @visit do |f| %>
   <% if @visit.errors.any? %>
-    <div id="error_explanation">
-      <h4><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h4>
-      <!--
+  <div id="error_explanation">
+  <h4><%= pluralize(@visit.errors.count, "error") %> prohibited this visit from being saved:</h4>
+  <!--
       <ul>
       <%  @visit.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+ <li><%= msg %></li>
       <% end %>
       </ul> -->
-    </div>
+</div>
   <% end %>
-  <div id="visitors">
-  <% f.fields_for :visitors do |visitor| %>
-    <div class="input-group">
-      <%= visitor.text_field :vname %>
-    <button class="btn btn-default"><span class="icon-minus"></span><%= visitor.link_to_remove "Remove" %></button>
-    </div>
-  </div>
-  <% end %>
-  <div class='btn-group'>
-  <button class="btn btn-default"><span class="icon-plus"></span> <%= f.link_to_add "Add Visitor", :visitors, :data => { :target => "#visitors" } %> </button>  <%= f.button :submit %>
-  </div>
-    <%= f.input :company %>
-    <%= f.input :phone %>
-    <%= f.input :email %>
-    <%= f.input :notes, :input_html =>  {:cols => 140, :rows => 10 } %>
 
-<% end %>
+
+
+<div class="row"]]>
+  <div class="col-lg-4"]]>
+  </div>
+  <div class="col-lg-4"]]>
+    <h4>Visitor 
+      <button class="btn btn-default" type="button"]]><%= f.link_to_add "Add", :visitors, data: { target: "#visitors" } %></button>
+    </h4>
+  </div>
+</div>
+
+
+<div class="row"]]>
+  <div class="col-lg-4"]]>
+    <div class="input-group"]]>
+      <span class="input-group-addon"]]>*</span>
+      <%= f.input :company, label: false, error: false, input_html:{ class: "form-control", placeholder: "Company" } %>
+    </div>
+
+    <br>
+
+
+    <div class="input-group"]]>
+      <span class="input-group-addon"]]>*</span>
+      <%= f.input :phone, label: false, error: false, input_html: { class: "form-control", placeholder: "Phone" } %>
+    </div>
+
+    <br>
+
+    <div class="input-group"]]>
+      <span class="input-group-addon"]]>*</span>
+      <%= f.input :email, label: false, error: false, input_html: { class: "form-control", placeholder: "Email" } %>
+    </div>
+
+
+    <br>
+
+    <div class="input-group"]]>
+      <span class="input-group-addon"]]>*</span>
+      <%= f.input :notes, label: false, error: false, input_html: { class: "form-control", rows: 5, placeholder: "Notes" } %>
+    </div>
+
+    <br>
+
+
+
+
+    <div class="btn-group"]]>
+      <button type="submit" class="btn btn-primary"]]>Submit</button>
+      <button type="button" class="btn btn-default"]]><%= link_to "Cancel", visits_path %></button>
+    </div>
+  </div>
+
+
+
+  <div class="col-lg-4" id="visitors"]]>
+    <% f.fields_for :visitors do |visitor| %>
+      <div class="input-group"]]>
+      <span class="input-group-addon"]]>
+        <%= visitor.label :visitors, "Visitor" %>
+      </span>
+      <%= visitor.input :vname, label: false, error: false, input_html: {class: "form-control"} %>
+
+      <!--%= visitor.text_field :vname %-->
+      <span class="input-group-btn"]]>
+        <button class="btn btn-default" type="button"]]><%= visitor.link_to_remove "Remove" %></button>
+      </span>
+    </div>
+    <br>
+
+  <% end %>
+
+  <% end %>
