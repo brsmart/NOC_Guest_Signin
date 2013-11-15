@@ -26,6 +26,10 @@
   <%= @visit.created_at %>
 </p>
 
-
+<ul>
+  <% @visit.visitors.each do |visitor| %>
+    <li><%= visitor.vname %></li>
+<% end %>
+</ul>
 <%= link_to 'Edit', edit_visit_path(@visit) %> |
 <%= link_to 'Back', visits_path %>

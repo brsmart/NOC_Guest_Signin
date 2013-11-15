@@ -1,5 +1,6 @@
 class Visit < ActiveRecord::Base
   has_many :visitors
+  has_many :visit_logs
   accepts_nested_attributes_for :visitors, :allow_destroy => true
 
   validates :company, presence: true

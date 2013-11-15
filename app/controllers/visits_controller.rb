@@ -4,9 +4,13 @@ class VisitsController < ApplicationController
   # GET /visits
   # GET /visits.json
   def index
-    @visits = Visit.all
+    #@visits = Visit.all
+    @visit = Visit.where( completed: false )
   end
 
+  def completed_visits
+    @completed_visits = Visit.where( completed: true )
+  end
   # GET /visits/1
   # GET /visits/1.json
   def show

@@ -1,0 +1,33 @@
+<% content_for :title do %>
+  Completed Visits 
+<% end %>
+
+<div class="row">
+  <div class="span6">
+    <h3>Visits
+      <div class="btn-group">
+        <button class="btn btn-default"><span class="icon-plus"></span> <%= link_to 'New Visit', new_visit_path %></button>
+      </div>
+    </h3>
+  </div>
+</div>
+
+<%= render "tabs" %>
+
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th>Company</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Notes</th>
+        <th>Time In</th>
+        <th>Time Out</th>
+        <th></th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <%= render @completed_visits %>
+  </tbody>
+</table>

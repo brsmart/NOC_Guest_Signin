@@ -11,6 +11,9 @@
     </h3>
   </div>
 </div>
+
+<%= render 'tabs' %>
+
   <table class="table table-striped">
     <thead>
       <tr>
@@ -26,22 +29,22 @@
     </thead>
 
   <tbody>
-    <% @visits.each do |visit| %>
-      <tr>
-        <td><%= visit.company %></td>
-        <td><%= visit.phone %></td>
-        <td><%= visit.email %></td>
-        <td><%= visit.notes %></td>
-        <td><%= visit.created_at%></td>
-        <td><%= visit.time_out%></td>
-        <td><%= link_to 'Show', visit %></td>
-        <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
-        <% if visit.completed %>
-          <td>*** Ended ***</td>
-        <% else %>
-        <td><%= link_to 'End Visit', visit, method: :delete, data: { confirm: 'Mark visit as having ended?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
+  <% @visit.each do |visit| %>
+<tr>
+  <td><%= visit.company %></td>
+  <td><%= visit.phone %></td>
+  <td><%= visit.email %></td>
+  <td><%= visit.notes %></td>
+  <td><%= visit.created_at%></td>
+  <td><%= visit.time_out%></td>
+  <td><%= link_to 'Show', visit %></td>
+  <td><%= link_to 'Edit', edit_visit_path(visit) %></td>
+  <% if visit.completed %>
+    <td>*** Ended ***</td>
+<% else %>
+    <td><%= link_to 'End Visit', visit, method: :delete, data: { confirm: 'Mark visit as having ended?' } %></td>
+<% end %>
+</tr>
+<% end %>
   </tbody>
 </table>

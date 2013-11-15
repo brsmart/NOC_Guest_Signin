@@ -1,16 +1,13 @@
 NOCGuestSignin::Application.routes.draw do
-  resources :visitors
-  resources :visits
+  resources :visits do
+    get 'completed_visits', :on => :collection
+  end
 
-  devise_for :views
   devise_for :users
   #brs-get "home/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  resources :visits do
-    get 'visits', :on => :collection
-  end
   # You can have the root of your site routed with "root"
   #brs- root 'home#index'
   authenticated :user do
